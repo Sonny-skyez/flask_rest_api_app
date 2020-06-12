@@ -2,14 +2,14 @@ from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 from flask_jwt import JWT, jwt_required
 
-from security import autnenticate, identity
+from security import authenticate, identity
 
 
 app = Flask(__name__)
 app.secret_key = "Kris"
 api = Api(app)
 
-jwt = JWT(app, autnenticate, identity)  # /auth
+jwt = JWT(app, authenticate, identity)  # /auth
 
 items = []
 
@@ -20,7 +20,7 @@ class Item(Resource):
         "price", type=float, required=True, help="This field cannot be left blank.",
     )
 
-    # @jwt_required()
+    @jwt_required()
     def get(self, name):
         item = next(filter(lambda x: x["name"] == name, items), None)
 
