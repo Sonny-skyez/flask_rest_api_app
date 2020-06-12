@@ -45,6 +45,8 @@ class UserRegister(Resource):
         cursor = connection.cursor()
 
         data = UserRegister.parser.parse_args()
+        if User.find_user_by_username(data["username"]):
+            return {"message": "Username already taken. Please try again."}, 400
 
         query = "INSERT INTO users VALUES (NULL, ?, ?)"
         cursor.execute(query, (data["username"], data["password"]))
