@@ -28,3 +28,8 @@ venv.bak/
 
 # IDE
 .idea/
+
+# SQlite3 database
+code/data.db
+
+
