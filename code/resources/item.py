@@ -9,7 +9,7 @@ class Item(Resource):
         "price", type=float, required=True, help="This field cannot be left blank.",
     )
     parser.add_argument(
-        "store_id", type=int, required=True, help="Every item need a store id..",
+        "store_id", type=int, required=True, help="Every item need a store id.",
     )
 
     @jwt_required()
@@ -31,7 +31,7 @@ class Item(Resource):
             item.save_to_db()
         except:
             return (
-                {"message": "An error occurred while trying to insert item"},
+                {"message": "An error occurred while trying to insert item."},
                 500,
             )  # internal server error
 
