@@ -28,7 +28,10 @@ class Item(Resource):
         try:
             item.save_to_db()
         except:
-            return {"message": "An error occurred while trying to insert item"}, 500    # internal server error
+            return (
+                {"message": "An error occurred while trying to insert item"},
+                500,
+            )  # internal server error
 
         return item.json(), 201
 
