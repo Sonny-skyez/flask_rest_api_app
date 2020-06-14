@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_restful import Api
 from flask_jwt import JWT
 
@@ -15,6 +15,16 @@ app.secret_key = "Kris"
 api = Api(app)
 
 
+@app.route("/")
+def render_index_html():
+    return render_template("index.html")
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
 jwt = JWT(app, authenticate, identity)  # /auth
 
 api.add_resource(Item, "/item/<string:name>")
@@ -24,6 +34,7 @@ api.add_resource(ItemList, "/items")
 api.add_resource(StoreList, "/stores")
 
 api.add_resource(UserRegister, "/register")
+
 
 if __name__ == "__main__":
     from db import db
