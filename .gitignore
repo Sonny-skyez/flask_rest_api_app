@@ -108,6 +108,7 @@ venv.bak/
 
 # SQlite3 database
 code/data.db
+data.db
 
 # SQlite3 test file
 connection_test.py
