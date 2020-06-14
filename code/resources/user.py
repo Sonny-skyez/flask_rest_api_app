@@ -22,7 +22,7 @@ class UserRegister(Resource):
         try:
             user.save_to_db()
         except:
-            return {"message": "An error occurred while trying to insert new user"}, 500
+            return {"message": "An error occurred while trying to insert new user."}, 500
 
         return (
             {"message": "User '{}' created successfully".format(data["username"])},
