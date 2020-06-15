@@ -5,13 +5,14 @@ body {
 }
 
 div {
- width: 40%;
+ width: 50%;
 }
 
 h1, p {
   background-color: #a6a6a6;
   color: #262626;
   padding: 5px;
+  margin: 10px;
   border: 2px solid black;
   border-radius: 5px;
   font-family: Verdana, Arial;
@@ -23,7 +24,24 @@ a {
 }
 
 a:hover {
+  color: darkgrey;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a.code:hover {
   color: black;
   background-color: transparent;
   text-decoration: underline;
+}
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   height: 5%;
+   background-color: black;
+   color: white;
+   text-align: left;
 }
