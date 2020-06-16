@@ -8,7 +8,7 @@ div {
  width: 50%;
 }
 
-h1, p {
+h1, p, ol {
   background-color: #a6a6a6;
   color: #262626;
   padding: 5px;

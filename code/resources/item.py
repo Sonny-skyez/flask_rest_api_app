@@ -64,3 +64,7 @@ class ItemList(Resource):
     # @jwt_required()
     def get(self):
         return {"items": [item.json() for item in ItemModel.query.all()]}
+
+    @staticmethod
+    def get_all_for_js():
+        return [item for item in ItemModel.query.all()]
