@@ -8,6 +8,7 @@ from security import authenticate, identity
 from resources.user import UserRegister
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
+from models.item import ItemModel
 
 
 app = Flask(__name__)
@@ -19,11 +20,12 @@ api = Api(app)
 
 @app.route("/")
 def render_index_html():
-    return render_template("index.html")
+    items = ItemList.get_all_for_js()
+    return render_template("index.html", items=items)
 
 
 @app.route("/about")
-def about():
+def render_about_html():
     return render_template("about.html")
 
 
